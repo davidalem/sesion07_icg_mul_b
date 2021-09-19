@@ -1,11 +1,24 @@
-<canvas id='canvas' width=600 height=400>
+<canvas id='canvas' width=600 height=600>
 <script>
 
 function estrella(a,colorBorde,colorRelleno){
+ctx.beginPath()
+ctx.strokeStyle = colorBorde
+ctx.fillStyle = colorRelleno
 
-
-
+ctx.moveTo(a[0],a[1])
+for (i=2; i<a.length;i+=2)
+ ctx.lineTo(a[i],a[i+1]);
+ctx.closePath()
+ctx.stroke()
+ctx.fill()
 
 }
+
+var canvas = document.getElementById('canvas')
+var ctx = canvas.getContext('2d');
+
+
+estrella([90,140,190,140,246,62,302,140,402,140,355,222,404,302,304,302,248,385,190,302,90,302,140,222],'red','cyan')
 
 </script>
